@@ -1,7 +1,10 @@
 {
   "name": "@albizeka/context-menu-vue3",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
+  "peerDependencies": {
+    "@mahdikhashan/vue3-click-outside": "^0.1.2"
+  },
   "type": "module",
   "files": ["dist", "src/js"],
   "main": "./dist/vue-context.umd.cjs",
