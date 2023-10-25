@@ -7,7 +7,7 @@
   "main": "./dist/vue-context.umd.cjs",
   "module": "./src/js/index.js",
   "peerDependencies": {
-    "@mahdikhashan/vue3-click-outside": "^0.1.2",
+    "@mahdikhashan/vue3-click-outside": "^0.1.2"
   },
   "exports": {
     ".": {
