@@ -5,6 +5,9 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'node:path'
 
+import hypothetical from 'rollup-plugin-hypothetical';
+import postprocess from '@stadtlandnetz/rollup-plugin-postprocess';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
@@ -25,8 +28,17 @@ export default defineConfig({
     }
   },
   plugins: [
+    hypothetical({
+      allowFallthrough: true,
+      files: {
+          '@mahdikhashan/vue3-click-outside/': ``,
+      }
+  }),
+  postprocess([
+      [/import[^;]*/, '']
+  ]),
     vue(),
-    vueJsx(),
+    vueJsx()
   ],
   resolve: {
     alias: {
