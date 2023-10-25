@@ -5,7 +5,7 @@ This library is derived by ([vue-context](https://github.com/rawilk/vue-context 
 
 [![VueJS version](https://img.shields.io/badge/vue.js-3.x-green.svg?style=for-the-badge)](https://vuejs.org)
 
-`vue-context` provides a simple yet flexible context menu for Vue. It is styled for the standard `<ul>` tag, but any menu template can be used.
+`context-menu-vue3` provides a simple yet flexible context menu for Vue. It is styled for the standard `<ul>` tag, but any menu template can be used.
 
 The menu is lightweight with its only dependency being `vue3-click-outside`. The menu has some basic styles applied to it, but they can be easily 
 overridden by your own styles.
