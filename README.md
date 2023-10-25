@@ -1,40 +1,92 @@
+# Note
+This library is derived by ([vue-context](https://github.com/rawilk/vue-context "vue-context")) library where all the code is same but now works in vue3
+
 # vue3-context-menu
 
-This template should help get you started developing with Vue 3 in Vite.
+[![VueJS version](https://img.shields.io/badge/vue.js-3.x-green.svg?style=for-the-badge)](https://vuejs.org)
 
-## Recommended IDE Setup
+`vue-context` provides a simple yet flexible context menu for Vue. It is styled for the standard `<ul>` tag, but any menu template can be used.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+The menu is lightweight with its only dependency being `vue3-click-outside`. The menu has some basic styles applied to it, but they can be easily 
+overridden by your own styles.
+<br><br>
+The menu disappears when you expect by utilizing `vue3-click-outside` and it also optionally disappears when clicked on.
 
-## Type Support for `.vue` Imports in TS
+![Screenshot](docs/images/screenshot.jpg)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Getting Started
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+The following instructions will help you get the vue-context menu up and running on
+your project.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### Installation
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+Using npm:
+```bash
+npm i @albizeka/context-menu-vue3
 ```
 
-### Compile and Hot-Reload for Development
+## Basic Usage
 
-```sh
-npm run dev
+Import the component and use it in your app.
+
+```js
+import VueContext from "@albizeka/context-menu-vue3";
+import { ref, nextTick } from "vue";
+
+// Context items
+const items = ref(["Item 1", "Item 2"]);
+
+// Action
+function onClick(param) {
+  console.log("Item clicked");
+}
 ```
 
-### Type-Check, Compile and Minify for Production
+Next add an element to the page that will trigger the context menu to appear, and also add the context menu to the page.
 
-```sh
-npm run build
+```html
+<div id="app">
+
+    <div class="button">
+      <p @contextmenu.prevent="$refs.menu.open">Right click on me</p>
+    </div>
+    
+    <VueContext ref="menu">
+      <li v-for="item in items">
+        <a href="#" @click.prevent="onClick($event.target.innerText)">{{
+          item
+        }}</a>
+      </li>
+    </VueContext>
+    
+</div>
 ```
+
+## Documentation
+
+ **Notice:**  The code in full documentation is written in VUE2 but all functions are the same so everything should work fine
+
+For full documentation, go here: https://randallwilk.dev/docs/vue-context.
+
+If you would like to contribute to the documentation, you can edit the docs found here: https://github.com/rawilk/vue-context/tree/master/docs
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
+
+- [rawilk](https://github.com/rawilk)
+- [wol-soft](https://github.com/wol-soft)
+- [nachodd](https://github.com/nachodd)
+- [Nberezhnoy](https://github.com/Nberezhnoy)
+
+## Alternatives
+
+- [vue-context-menu](https://github.com/vmaimone/vue-context-menu)
+- [@overcoder/vue-context-menu](https://github.com/MicroDroid/vue-context-menu)
+
+See [awesome-vue](https://github.com/vuejs/awesome-vue#context-menu) for other alternatives.
+
+## License
+
+`@albizeka/context-menu-vue3` uses the MIT License (MIT). Please see the [license file](https://github.com/rawilk/vue-context/blob/master/LICENSE) for more information.
