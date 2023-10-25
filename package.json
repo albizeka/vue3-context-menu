@@ -2,6 +2,8 @@
   "name": "@albizeka/context-menu-vue3",
   "version": "1.0.13",
   "private": false,
+  "license": "MIT",
+  "author": "Albi Zeka <albiizeka@gmail.com>",
   "peerDependencies": {
     "@mahdikhashan/vue3-click-outside": "^0.1.2"
   },
