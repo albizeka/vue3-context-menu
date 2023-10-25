@@ -1,7 +1,17 @@
 {
-  "name": "vue3-context-menu",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@albizeka/context-menu-vue3",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/vue-context.umd.js",
+  "module": "./dist/vue-context.js",
+  "exports": {
+    ".": {
+      "import": "./src/js/vue-context.js",
+      "require": "./dist/vue-context.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
