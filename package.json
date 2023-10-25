@@ -1,15 +1,15 @@
 {
   "name": "@albizeka/context-menu-vue3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "type": "module",
   "files": ["dist"],
-  "main": "./dist/vue-context.umd.js",
-  "module": "./dist/vue-context.js",
+  "main": "./dist/vue-context.umd.cjs",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./src/js/vue-context.js",
-      "require": "./dist/vue-context.umd.js"
+      "import": "./src/js/index.js",
+      "require": "./dist/vue-context.umd.cjs"
     }
   },
   "scripts": {
