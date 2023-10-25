@@ -12,7 +12,7 @@ overridden by your own styles.
 <br><br>
 The menu disappears when you expect by utilizing `vue3-click-outside` and it also optionally disappears when clicked on.
 
-![Screenshot](docs/images/screenshot.jpg)
+![Screenshot](https://i.postimg.cc/0N3qyR57/context-image.jpg)
 
 ## Getting Started
 
