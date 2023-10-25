@@ -1,6 +1,6 @@
 {
   "name": "@albizeka/context-menu-vue3",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "private": false,
   "peerDependencies": {
     "@mahdikhashan/vue3-click-outside": "^0.1.2"
@@ -11,13 +11,7 @@
     "src/js"
   ],
   "main": "./dist/vue-context.umd.cjs",
-  "module": "./src/js/index.js",
-  "exports": {
-    ".": {
-      "import": "./src/js/index.js",
-      "require": "./dist/vue-context.umd.cjs"
-    }
-  },
+  "module": "./dist/vue-context.js",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
