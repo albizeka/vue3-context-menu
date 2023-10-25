@@ -1,5 +1,5 @@
 # Note
-This library is derived by ([vue-context](https://github.com/rawilk/vue-context "vue-context")) library where all the code is same but now works in vue3
+This library is derived by ([vue-context](https://github.com/rawilk/vue-context "vue-context")) library where main functionality hasn't changed.
 
 # vue3-context-menu
 
