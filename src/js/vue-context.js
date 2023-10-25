@@ -17,7 +17,6 @@ export default {
     directives: {
         clickOutside: vClickOutside.directive
     },
-
     props: {
         closeOnClick: {
             type: Boolean,

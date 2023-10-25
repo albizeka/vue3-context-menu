@@ -1,30 +1,32 @@
+import f from "@mahdikhashan/vue3-click-outside";
+import { h as d, vShow as S, withDirectives as y } from "vue";
 Array.from || (Array.from = (e) => [].slice.call(e));
 Array.isArray || (Array.isArray = (e) => Object.prototype.toString.call(e) === "[object Array]");
-const p = Array.from, S = Array.isArray, o = {
+const b = Array.from, E = Array.isArray, o = {
   ESC: 27,
   LEFT: 37,
   UP: 38,
   RIGHT: 39,
   DOWN: 40
-}, y = (e, t) => !e || typeof e.contains != "function" ? !1 : e.contains(t), c = (e, t, s) => {
+}, g = (e, t) => !e || typeof e.contains != "function" ? !1 : e.contains(t), c = (e, t, s) => {
   e && e.addEventListener && e.addEventListener(t, s);
 }, a = (e, t, s) => {
   e && e.removeEventListener && e.removeEventListener(t, s);
-}, b = (e) => (e || []).filter(E), m = (e) => r(e) ? e.getBoundingClientRect() : null, r = (e) => !!(e && e.nodeType === Node.ELEMENT_NODE), E = (e) => {
-  if (!r(e) || !y(document.body, e) || e.style.display === "none")
+}, w = (e) => (e || []).filter(x), p = (e) => r(e) ? e.getBoundingClientRect() : null, r = (e) => !!(e && e.nodeType === Node.ELEMENT_NODE), x = (e) => {
+  if (!r(e) || !g(document.body, e) || e.style.display === "none")
     return !1;
-  const t = m(e);
+  const t = p(e);
   return !!(t && t.height > 0 && t.width > 0);
-}, d = (e, t) => p((r(t) ? t : document).querySelectorAll(e)), v = (e, t, s) => {
+}, m = (e, t) => b((r(t) ? t : document).querySelectorAll(e)), v = (e, t, s) => {
   t && r(e) && e.setAttribute(t, s);
 }, l = (e, t) => {
   let s = e.parentElement;
   for (; s !== null && !s.classList.contains(t); )
     s = s.parentElement;
   return s;
-}, g = {
+}, L = {
   directives: {
-    clickOutside: vClickOutside.directive
+    clickOutside: f.directive
   },
   props: {
     closeOnClick: {
@@ -125,10 +127,10 @@ const p = Array.from, S = Array.isArray, o = {
       }));
     },
     getItems() {
-      return b(d(this.localItemSelector, this.activeSubMenu || this.$el));
+      return w(m(this.localItemSelector, this.activeSubMenu || this.$el));
     },
     mapItemSelector(e) {
-      return S(e) && (e = e.map((t) => `${t}:not(.disabled):not([disabled])`).join(", ")), e;
+      return E(e) && (e = e.map((t) => `${t}:not(.disabled):not([disabled])`).join(", ")), e;
     },
     onClick() {
       this.close();
@@ -159,7 +161,7 @@ const p = Array.from, S = Array.isArray, o = {
       });
     },
     openSubMenu(e) {
-      const t = this.getSubMenuElementByEvent(e), s = l(t.parentElement, "v-context"), i = m(e.target);
+      const t = this.getSubMenuElementByEvent(e), s = l(t.parentElement, "v-context"), i = p(e.target);
       if (this.activeSubMenu !== s)
         for (; this.activeSubMenu !== null && this.activeSubMenu !== s && this.activeSubMenu !== t; )
           l(this.activeSubMenu, "v-context__sub").dispatchEvent(new Event("mouseleave"));
@@ -178,8 +180,8 @@ const p = Array.from, S = Array.isArray, o = {
       return e.target.getElementsByTagName("ul")[0];
     },
     positionMenu(e, t, s) {
-      const i = this.useScrollHeight ? s.scrollHeight : s.offsetHeight, n = window.innerHeight - i - this.heightOffset, u = this.useScrollWidth ? s.scrollWidth : s.offsetWidth, f = window.innerWidth - u - this.widthOffset;
-      return e > n && (e = n), t > f && (t = f), [e, t];
+      const i = this.useScrollHeight ? s.scrollHeight : s.offsetHeight, n = window.innerHeight - i - this.heightOffset, u = this.useScrollWidth ? s.scrollWidth : s.offsetWidth, h = window.innerWidth - u - this.widthOffset;
+      return e > n && (e = n), t > h && (t = h), [e, t];
     },
     removeScrollEventListener() {
       a(window, "scroll", this.close);
@@ -195,7 +197,7 @@ const p = Array.from, S = Array.isArray, o = {
       this.top = null, this.left = null, this.data = null, this.show = !1;
     },
     setItemRoles() {
-      d(this.localItemSelector, this.$el).forEach((e) => {
+      m(this.localItemSelector, this.$el).forEach((e) => {
         v(e, "role", "menuitem"), v(e, "tabindex", "-1");
       });
     }
@@ -210,12 +212,12 @@ const p = Array.from, S = Array.isArray, o = {
   },
   render() {
     if (this.lazy && !this.show)
-      return h(!1);
+      return d(!1);
     this.onKeydown, this.closeOnClick && this.onClick;
     const e = [
-      [vShow, this.show],
-      [vClickOutside, this.close]
-    ], t = h(
+      [S, this.show],
+      [f, this.close]
+    ], t = d(
       this.tag,
       {
         class: "v-context",
@@ -232,9 +234,9 @@ const p = Array.from, S = Array.isArray, o = {
       },
       this.$slots.default({ data: this.data })
     );
-    return withDirectives(t, e);
+    return y(t, e);
   }
 };
 export {
-  g as default
+  L as default
 };

@@ -1,6 +1,6 @@
 {
   "name": "@albizeka/context-menu-vue3",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "peerDependencies": {
     "@mahdikhashan/vue3-click-outside": "^0.1.2"

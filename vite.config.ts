@@ -4,9 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'node:path'
-
-import hypothetical from 'rollup-plugin-hypothetical';
-import postprocess from '@stadtlandnetz/rollup-plugin-postprocess';
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,24 +17,14 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue', '@mahdikhashan/vue3-click-outside'],
       output: {
-        exports: 'named',
-        format: 'cjs',
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          "@mahdikhashan/vue3-click-outside": "@mahdikhashan/vue3-click-outside"
         }
       }
     }
   },
   plugins: [
-    hypothetical({
-      allowFallthrough: true,
-      files: {
-          '@mahdikhashan/vue3-click-outside/': ``,
-      }
-  }),
-  postprocess([
-      [/import[^;]*/, '']
-  ]),
     vue(),
     vueJsx()
   ],
