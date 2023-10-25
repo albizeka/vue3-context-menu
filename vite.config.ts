@@ -14,7 +14,7 @@ export default defineConfig({
       fileName: 'vue-context'
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', '@mahdikhashan/vue3-click-outside'],
       output: {
         exports: 'named',
         format: 'cjs',
