@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>
+  <div id="app">
+    <div class="button">
       <p @contextmenu.prevent="$refs.menu.open">Right click on me</p>
     </div>
 
