@@ -3,6 +3,10 @@
     <div class="button">
       <p @contextmenu.prevent="$refs.menu.open">Right click on me</p>
     </div>
+    <!--  -->
+    <div class="test__div" @contextmenu.prevent="$refs.menu.open">
+
+    </div>
 
     <VueContext ref="menu">
       <li v-for="item in items">
@@ -26,3 +30,11 @@ function onClick(param) {
   console.log("Item clicked");
 }
 </script>
+
+<style>
+  .test__div {
+    width: 100%;
+    height: 100vh;
+    background: red;
+  }
+</style>
