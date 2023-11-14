@@ -15,7 +15,7 @@ import {
 
 export default {
     directives: {
-        clickOutside: vClickOutside.directive
+        clickOutside: vClickOutside
     },
     props: {
         closeOnClick: {
